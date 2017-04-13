@@ -19,7 +19,9 @@ function saveFeedOrder(item) {
 	var list = group.element.parentNode;
 	var id = list.getAttribute("id");
 	if (id == null) { return; }
-	group.register('dragend', function() { Hammer.cookies().set("feed-" + id, junkpile.serializeList(list), 365) });
+	group.register('dragend', function() { 
+		Hammer.cookies().set("feed-" + id, junkpile.serializeList(list), 365) 
+	});
 }
 
 function saveMenuOrder(item) {
@@ -27,7 +29,9 @@ function saveMenuOrder(item) {
 	var list = group.element.parentNode;
 	var id = list.getAttribute("id");
 	if (id == null) { return; }
-	group.register('dragend', function() { Hammer.cookies().set("menu-" + id, junkpile.serializeList(list), 365) });
+	group.register('dragend', function() { 
+		Hammer.cookies().set("menu-" + id, junkpile.serializeList(list), 365) 
+	});
 }
 
 function roundNews(){
@@ -59,11 +63,3 @@ womAdd('initExpand()');
 womAdd('clearSearch()');
 
 womOn();
-/*
-     FILE ARCHIVED ON 02:42:58 Jan 10, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:36 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/

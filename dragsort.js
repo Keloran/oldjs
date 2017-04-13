@@ -19,7 +19,9 @@ Hammer._dragsortFactory = {
 			var dragGroup = dragsort.makeSortable(item);
 			dragGroup.setThreshold(4);
 			var min, max;
-			dragGroup.addTransform(function(coordinate, dragEvent) { return coordinate.constrainTo(min, max); });
+			dragGroup.addTransform(function(coordinate, dragEvent) { 
+				return coordinate.constrainTo(min, max); 
+			});
 			dragGroup.register('dragstart', function() {
 				var items = list.getElementsByTagName("li");
 				min = max = coordinates.topLeftOffset(items[0]);
@@ -34,7 +36,7 @@ Hammer._dragsortFactory = {
 	},
 
 	_onDragStart : function(dragEvent) {
-		//web-beta.archive.org/web/20070110024143/http://window.status = dragEvent.toString();
+		window.status = dragEvent.toString();
 	},
 
 	_onDragMove : function(dragEvent) {
@@ -47,7 +49,9 @@ Hammer._dragsortFactory = {
 		var previous = helpers.previousItem(item, item.nodeName);
 		while (previous != null) {
 			var bottomRight = coordinates.bottomRightOffset(previous);
-			if (xmouse.y <= bottomRight.y && xmouse.x <= bottomRight.x) { moveTo = previous; }
+			if (xmouse.y <= bottomRight.y && xmouse.x <= bottomRight.x) { 
+				moveTo = previous; 
+			}
 			previous = helpers.previousItem(previous, item.nodeName);
 		}
 		if (moveTo != null) {
@@ -58,7 +62,9 @@ Hammer._dragsortFactory = {
 		var next = helpers.nextItem(item, item.nodeName);
 		while (next != null) {
 			var topLeft = coordinates.topLeftOffset(next);
-			if (topLeft.y <= xmouse.y && topLeft.x <= xmouse.x) { moveTo = next; }
+			if (topLeft.y <= xmouse.y && topLeft.x <= xmouse.x) { 
+				moveTo = next; 
+			}
 			next = helpers.nextItem(next, item.nodeName);
 		}
 		if (moveTo != null) {
@@ -71,11 +77,3 @@ Hammer._dragsortFactory = {
 		Hammer.coordinates().create(0, 0).reposition(dragEvent.group.element);
 	}
 }
-/*
-     FILE ARCHIVED ON 02:41:43 Jan 10, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:35 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/

@@ -158,8 +158,14 @@ function listNewArticles(){
 			itemTitleLink.appendChild(itemBr);
 		}
 
-		if (typeof(feedId) != "undefined" || typeof(feedId) != "null") { destroySpinny("articles" + feedId); }
-		if (feedBox.childNodes.length > 5) { for (iC = 0; iC < 5; iC++) { feedBox.removeChild(feedBox.firstChild); } }
+		if (typeof(feedId) != "undefined" || typeof(feedId) != "null") { 
+			destroySpinny("articles" + feedId); 
+		}
+		if (feedBox.childNodes.length > 5) { 
+			for (iC = 0; iC < 5; iC++) { 
+				feedBox.removeChild(feedBox.firstChild); 
+			} 
+		}
 
 		setTimeout("getArticles(" + feedId + ")", refreshTime);
 	} else {
@@ -299,9 +305,9 @@ function getAll() {
 
 	if (typeof(xmlDoc.getElementsByTagName('result')[0]) != "undefined") {
 		var showCont	= document.createElement("div");
-		var ol			= document.createElement("ol");
-		var titleH 		= document.createElement("h2")
-			titleText	= document.createTextNode(feedTitle);
+		var ol			  = document.createElement("ol");
+		var titleH 		= document.createElement("h2");
+		var titleText	= document.createTextNode(feedTitle);
 
 
 		for(i = 0; i < items.length; i++) {
@@ -335,11 +341,3 @@ function getAll() {
 		throwError("reader", xmlDoc);
 	}
 }
-/*
-     FILE ARCHIVED ON 18:48:56 Jan 23, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:36 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/

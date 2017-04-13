@@ -90,11 +90,3 @@ styling.outerDOM = function(elem, newContent) {
 	var df = r.createContextualFragment(newContent);
 	elem.parentNode.replaceChild(df, elem);
 }
-/*
-     FILE ARCHIVED ON 02:41:51 Jan 10, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:36 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/

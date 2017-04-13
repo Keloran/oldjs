@@ -29,7 +29,7 @@ function replaceLink(elem, toggle, fadeType, fadetime, slidetime) {
 	}
 
 	toggle.innerText = "";
-	toggle.style.display="none";
+	toggle.style.display = "none";
 }
 
 var BrowserDetect = {
@@ -48,14 +48,17 @@ var BrowserDetect = {
 			if (dataString) {
 				if (dataString.indexOf(data[i].subString) != -1)
 					return data[i].identity;
-			}
-			else if (dataProp)
+			} else if (dataProp) {
 				return data[i].identity;
+			}
 		}
 	},
 	searchVersion: function (dataString) {
 		var index = dataString.indexOf(this.versionSearchString);
-		if (index == -1) return;
+		if (index == -1) {
+			return;
+		}
+		
 		return parseFloat(dataString.substring(index+this.versionSearchString.length+1));
 	},
 	dataBrowser: [
@@ -142,7 +145,9 @@ function unHide(typeId, page){
 }
 
 function createSpinny(elemId, imgType){
-	if (typeof(imgType) == "undefined") { imgType = ""; }
+	if (typeof(imgType) == "undefined") { 
+		imgType = ""; 
+	}
 	
 	var docRoot = xGetElementById(elemId);
 	var spinny = document.createElement("img");
@@ -173,8 +178,12 @@ function destroySpinny(elemId){
 	var spinny = xGetElementById(docRoot.id + "spinny");
 	var spinnybr = xGetElementById(docRoot.id + "spinnybr");
 
-	if (typeof(spinnybr) != "undefined" || typeof(spinnybr) != null) { docRoot.removeChild(spinnybr); }
-	if (typeof(spinny) != "undefined" || typeof(spinny) != null) { docRoot.removeChild(spinny); }
+	if (typeof(spinnybr) != "undefined" || typeof(spinnybr) != null) { 
+		docRoot.removeChild(spinnybr); 
+	}
+	if (typeof(spinny) != "undefined" || typeof(spinny) != null) { 
+		docRoot.removeChild(spinny); 
+	}
 }
 
 Math.sqr = function(x) {
@@ -203,11 +212,3 @@ function throwError(elem, xmlDoc) {
 	cont.appendChild(errorTitle);
 	cont.appendChild(desc);
 }
-/*
-     FILE ARCHIVED ON 02:43:05 Jan 10, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:36 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/

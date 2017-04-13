@@ -61,9 +61,13 @@ _HammerDragGroup.prototype = {
 
 		handle.HammerDragGroup = this;
 		events.register(handle, 'mousedown', this._dragInit);
-		handle.onmousedown = function() { return false; }
+		handle.onmousedown = function() { 
+			return false; 
+		}
 
-		if (this.element != handle) { events.unregister(this.element, 'mousedown', this._dragInit); }
+		if (this.element != handle) { 
+			events.unregister(this.element, 'mousedown', this._dragInit); 
+		}
 	},
 
 	register : function(type, func) {
@@ -106,8 +110,12 @@ _HammerDragGroup.prototype = {
 		var zIndex = typeof(zIndex) != "undefined" ? zIndex : 100000;
 		var originalZIndex = Hammer.css().readStyle(this.element, "z-index");
 
-		this.register('dragstart', function(dragEvent) { dragEvent.group.element.style.zIndex = zIndex; });
-		this.register('dragend', function(dragEvent) { dragEvent.group.element.style.zIndex = originalZIndex; });
+		this.register('dragstart', function(dragEvent) { 
+			dragEvent.group.element.style.zIndex = zIndex; 
+		});
+		this.register('dragend', function(dragEvent) { 
+			dragEvent.group.element.style.zIndex = originalZIndex; 
+		});
 	},
 
 	_dragInit : function(event) {
@@ -129,13 +137,19 @@ _HammerDragGroup.prototype = {
 		event = Hammer.events().fix(event);
 		var coordinates = Hammer.coordinates();
 		var group = this.HammerDragGroup;
-		if (!group) { return; }
+		if (!group) { 
+			return; 
+		}
+		
 		var dragEvent = group.factory._createEvent('dragmove', event, group);
 		var newTopLeftOffset = dragEvent.mouseOffset.minus(group._grabOffset);
 
 		if (!group._isThresholdExceeded) {
 			var distance = dragEvent.mouseOffset.distance(group._initalMouseOffset);
-			if (distance < group._thresholdDistance) { return; }
+			if (distance < group._thresholdDistance) { 
+				return; 
+			}
+			
 			group._isThresholdExceeded = true;
 			group._notifyListeners(group.factory._createEvent('dragstart', event, group));
 		}
@@ -153,7 +167,9 @@ _HammerDragGroup.prototype = {
 		group._notifyListeners(dragEvent);
 
 		var errorDelta = newTopLeftOffset.minus(coordinates.topLeftOffset(group.element));
-		if (errorDelta.x != 0 || errorDelta.y != 0) { coordinates.topLeftPosition(group.element).plus(errorDelta).reposition(group.element); }
+		if (errorDelta.x != 0 || errorDelta.y != 0) { 
+			coordinates.topLeftPosition(group.element).plus(errorDelta).reposition(group.element); 
+		}
 	},
 
 	_dragEnd : function(event) {
@@ -210,11 +226,3 @@ Hammer._dragFactory._constraintFactory = {
 		}
 	}
 }
-/*
-     FILE ARCHIVED ON 02:44:07 Jan 10, 2007 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 10:36:35 Apr 13, 2017.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
